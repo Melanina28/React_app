@@ -1,26 +1,49 @@
 import React from 'react';
+import {
+  BrowserRouter, Switch, Route, useLocation,
+} from 'react-router-dom';
+
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+import routes from './router';
+
+
+const AppRoute = ({ component: Component, layout: Layout, ...rest }) => {
+  const location = useLocation();
+
+  // React.useEffect(
+  //   () => {
+  //     window.analytics.page();
+  //   },
+  //   [location],
+  // );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <Route {...rest} render = {(props) => (
+            <Layout>
+                <Component { ...props } />
+            </Layout>
+        )}>
+        </Route>
   );
-}
+};
+
+
+const App = () => (
+    <BrowserRouter>
+        <Switch>
+            {routes.map((routeIndex, index) => (
+              routeIndex.routes.map((routeComponent, key) => (
+                <AppRoute key={ key }
+                    exact path={ routeComponent.path }
+                    layout={ routeIndex.layout }
+                    component={ routeComponent.component }
+                />
+              ))
+            ))}
+        </Switch>
+    </BrowserRouter>
+);
 
 export default App;
