@@ -4,6 +4,7 @@ import { Button, Card, Skeleton, Tooltip } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 
 import CardComponent from "./CardComponent/CardComponent";
+import InternshipTableComponent from "../InternshipTableComponent/InternshipTableComponent";
 
 //import { I18nContext } from "../../locale/locale";
 
@@ -15,17 +16,7 @@ const WorkingSpaceLayout = (props) => {
   return (
     <div className="test">
       <Skeleton active loading={false}>
-        <CardComponent title="titulo desde props" />
-        <CardComponent />
-        <CardComponent />
-        <CardComponent />
-        <CardComponent />
-        <Tooltip title="search">
-          <Button type="primary" shape="circle" icon={<SearchOutlined />} />
-        </Tooltip>
-        <Button type="primary" shape="circle">
-          Button
-        </Button>
+        <InternshipTableComponent />
       </Skeleton>
     </div>
   );

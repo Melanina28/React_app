@@ -1,8 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import auth from './config/auth'
+import observer from './config/observer'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+/**
+ * ::::::::::::::::::::::::::::::::::::::::::::::::::
+ */
+
+/**
+ * API Configuration
+ * @function auth.authValidateToken();
+ * + Verificación de autenticación
+ * @function observer.requestObserver();
+ * + Interceptor de peticiones axios
+ */
+auth.authValidateToken();
+observer.requestObserver();
+
+/**
+ * ::::::::::::::::::::::::::::::::::::::::::::::::::
+ */
 
 ReactDOM.render(
   <React.StrictMode>
