@@ -18,6 +18,8 @@ const accountRegisterStudent = (data) => api.postJson(`${prefix}/register-studen
 
 const accountAvatar = () => api.get(`${prefix}/avatar`);
 
+
+
 export default {
   accountLogin,
   accountLogout,

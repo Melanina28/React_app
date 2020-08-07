@@ -17,7 +17,7 @@ const AppRoute = ({ component: Component, layout: Layout, ...rest }) => {
   //     window.analytics.page();
   //   },
   //   [location],
-  // );
+  // ); 
 
   return (
         <Route {...rest} render = {(props) => (
